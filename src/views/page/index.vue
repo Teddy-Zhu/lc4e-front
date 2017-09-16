@@ -163,7 +163,7 @@
                         that.total = response.data.data.topics.totalCount;
                         that.size = response.data.data.topics.pageSize;
                     } else {
-                        that.$Message.error(response.data.message.length > 40 ? response.data.message.substring(0, 40) + "..." : response.data.message);
+                        that.$Message.error(response.data.message.length > 40 ? response.data.message.substring(0, 40) + '...' : response.data.message);
                     }
                 }).catch(function () {
                     this.$Message.error('数据获取错误');
@@ -175,7 +175,7 @@
                     if(response.data.result){
                         that.hots = response.data.data.topics;
                     }else{
-                        that.$Message.error(response.data.message.length > 40 ? response.data.message.substring(0, 40) + "..." : response.data.message);
+                        that.$Message.error(response.data.message.length > 40 ? response.data.message.substring(0, 40) + '...' : response.data.message);
                     }
                 });
             },

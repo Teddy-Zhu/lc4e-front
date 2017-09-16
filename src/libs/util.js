@@ -1,11 +1,12 @@
 import axios from 'axios';
 import env from '../config/env';
 import Vue from 'vue';
-
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css'
 let util = {};
 
 const ajaxUrl = env === 'development' ?
-    'http://localhost:8081' :
+    'https://api.silentgo.com' :
     env === 'production' ?
         'https://api.silentgo.com' :
         'https://api.silentgo.com';
@@ -28,6 +29,20 @@ util.ajax = axios.create({
     }
 });
 
+util.ajax.interceptors.request.use(function (config) {
+    NProgress.start();
+    return config
+}, function (error) {
+    return Promise.reject(error);
+})
+
+util.ajax.interceptors.response.use(res => {
+    NProgress.done()
+    return res;
+}, error => {
+    NProgress.done();
+    return Promise.reject(error)
+})
 Vue.prototype.$changeLang = function (locale) {
     Vue.config.lang = locale;
 }

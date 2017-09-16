@@ -7,6 +7,7 @@ import App from './app.vue';
 import store from './store';
 import 'iview/dist/styles/iview.css';
 
+
 import VueI18n from 'vue-i18n';
 import Locales from './locale';
 // import zhLocale from 'iview/src/locale/lang/zh-CN';
@@ -16,6 +17,7 @@ Vue.config.devtools = true;
 Vue.use(VueRouter);
 Vue.use(VueI18n);
 Vue.use(iView);
+Vue.use(N3);
 
 // 自动设置语言
 const navLang = navigator.language;
@@ -40,15 +42,15 @@ const RouterConfig = {
     routes: Routers
 };
 const router = new VueRouter(RouterConfig);
-
-router.beforeEach((to, from, next) => {
-    iView.LoadingBar.start();
-    next();
-});
-
-router.afterEach(() => {
-    iView.LoadingBar.finish();
-});
+//
+// router.beforeEach((to, from, next) => {
+//     iView.LoadingBar.start();
+//     next();
+// });
+//
+// router.afterEach(() => {
+//     iView.LoadingBar.finish();
+// });
 
 new Vue({
     el: '#app',
