@@ -17,7 +17,6 @@ Vue.config.devtools = true;
 Vue.use(VueRouter);
 Vue.use(VueI18n);
 Vue.use(iView);
-Vue.use(N3);
 
 // 自动设置语言
 const navLang = navigator.language;

@@ -6,7 +6,7 @@ import 'nprogress/nprogress.css'
 let util = {};
 
 const ajaxUrl = env === 'development' ?
-    'https://api.silentgo.com' :
+    'http://localhost:8081' :
     env === 'production' ?
         'https://api.silentgo.com' :
         'https://api.silentgo.com';

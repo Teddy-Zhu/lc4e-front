@@ -1,17 +1,26 @@
 <template>
     <Row justify="center">
         <Col :span="24" class="header back">
-            <div>{{base.siteName}} Control Center</div>
+        <div>{{base.siteName}} Control Center</div>
         </Col>
         <Col :span="4" class="back menu">
-            <sg-back-menu></sg-back-menu>
+        <sg-back-menu></sg-back-menu>
         </Col>
         <Col :span="20">
-            <slot></slot>
+        <slot></slot>
         </Col>
     </Row>
 </template>
-<style scoped>
+<style>
+    #nprogress .bar {
+        background: white !important;
+    }
+
+    #nprogress .spinner-icon {
+        border-top-color: white !important;
+        border-left-color: white !important;
+    }
+
     .back.menu {
         background: #eef1f6;
         min-height: 600px;
@@ -31,12 +40,11 @@
     import BackMenu from '../background/menu.vue';
     import {mapState} from 'vuex';
 
-    export default{
+    export default {
         name: 'sg-background',
         props: {},
-        data () {
-            return {
-            };
+        data() {
+            return {};
         },
         computed: mapState({
             base: state => state.base
